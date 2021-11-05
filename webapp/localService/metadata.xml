@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_SKODNI_UDALOSTI2_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Attachment" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DmgId"/>
+                    <PropertyRef Name="Dokar"/>
+                    <PropertyRef Name="Doknr"/>
+                    <PropertyRef Name="Dokvr"/>
+                    <PropertyRef Name="Doktl"/>
+                </Key>
+                <Property Name="DmgId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cislo skodni udalost"/>
+                <Property Name="Dokar" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Document Type"/>
+                <Property Name="Doknr" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Document"/>
+                <Property Name="Dokvr" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Doc. version"/>
+                <Property Name="Doktl" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Document part"/>
+                <Property Name="ZfiDmgD" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Typ dokumentu"/>
+                <NavigationProperty Name="NavToDamageFromAttachment" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToAttachments" FromRole="ToRole_ToAttachments" ToRole="FromRole_ToAttachments"/>
+            </EntityType>
+            <EntityType Name="Damage" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DmgId"/>
+                </Key>
+                <Property Name="CausedByTxt" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="DmgId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cislo skodni udalost"/>
+                <Property Name="IsForm1" Type="Edm.Byte" Nullable="false" sap:label="Int."/>
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" sap:label="Indicator"/>
+                <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" sap:label="Indicator"/>
+                <Property Name="IsForm2" Type="Edm.Byte" Nullable="false" sap:label="Int."/>
+                <Property Name="PropertyTxt" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="StatTxt" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="DmgIdDisp" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Číslo škodní událost"/>
+                <Property Name="IsForm3" Type="Edm.Byte" Nullable="false" sap:label="Int."/>
+                <Property Name="KindTxt" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="Stat" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="WF status"/>
+                <Property Name="DmgDate" Type="Edm.String" MaxLength="10" sap:label="Datum vzniku skody"/>
+                <Property Name="DmgTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Cas vzniku skody"/>
+                <Property Name="Loc" Type="Edm.String" Nullable="false" MaxLength="64" sap:label="Misto vzniku"/>
+                <Property Name="Kind" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Druh skody"/>
+                <Property Name="CausedBy" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Puvodce skody"/>
+                <Property Name="Property" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Poškozený majetek"/>
+                <Property Name="Descr" Type="Edm.String" Nullable="false" MaxLength="128" sap:label="Popis událostí"/>
+                <Property Name="Tdobject" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Text object"/>
+                <Property Name="Tdname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Text Name"/>
+                <Property Name="Tdid" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Text ID"/>
+                <Property Name="Tdspras" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language"/>
+                <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:unit="Curr" sap:label="Výše škody"/>
+                <Property Name="Curr" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Měna" sap:semantics="currency-code"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Založil"/>
+                <Property Name="CreatedAtD" Type="Edm.String" MaxLength="10" sap:label="Datum založení"/>
+                <Property Name="CreatedAtT" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Cas zalozeni"/>
+                <Property Name="ChangedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Změnil"/>
+                <Property Name="ChangedAtD" Type="Edm.String" MaxLength="10" sap:label="Datum změny"/>
+                <Property Name="ChangedAtT" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Cas zmeny"/>
+                <Property Name="DeputedErnam" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Zástup za KPJM"/>
+                <Property Name="DeputedPernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Zastup za osobniCisl"/>
+                <NavigationProperty Name="NavToDamageForm3" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToForm3" FromRole="FromRole_ToForm3" ToRole="ToRole_ToForm3"/>
+                <NavigationProperty Name="NavToDamageForm2" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToForm2" FromRole="FromRole_ToForm2" ToRole="ToRole_ToForm2"/>
+                <NavigationProperty Name="NavToDamageForm1" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToForm1" FromRole="FromRole_ToForm1" ToRole="ToRole_ToForm1"/>
+                <NavigationProperty Name="NavToAttachments" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToAttachments" FromRole="FromRole_ToAttachments" ToRole="ToRole_ToAttachments"/>
+            </EntityType>
+            <EntityType Name="DamageForm1" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DmgId"/>
+                </Key>
+                <Property Name="DmgId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cislo skodni udalost"/>
+                <Property Name="KindK1" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Poddruh škody"/>
+                <Property Name="EmplGuilty" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Uznani viny"/>
+                <Property Name="DmgBoard" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Projednat šk. komisi"/>
+                <Property Name="LaborUnion" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Projednat s odborovo"/>
+                <Property Name="LaborUnionOpt" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Určení odborové orga"/>
+                <Property Name="LaborUnionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Odborová organizace"/>
+                <Property Name="MaterialLiability" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Hmotná odpovědnost"/>
+                <Property Name="MaterialLiabilityDate" Type="Edm.DateTime" Precision="0" sap:label="Hmotná odpovědnost -"/>
+                <Property Name="CarUseType" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Režim vozidla"/>
+                <Property Name="CarBrand" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Značka a typ vozidla"/>
+                <Property Name="CarYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Rok výroby"/>
+                <Property Name="CarKm" Type="Edm.Int32" Nullable="false" sap:label="Počet kilometrů"/>
+                <Property Name="CarAssignDate" Type="Edm.DateTime" Precision="0" sap:label="Datum přidělení vozi"/>
+                <Property Name="TripType" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Druh cesty"/>
+                <Property Name="CarAccidentRecord" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Záznam o dopravní ne"/>
+                <Property Name="CarPoliceConfirm" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Potvrzení o účasti n"/>
+                <Property Name="CarPoliceDamage" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Hlášení škody PČR"/>
+                <Property Name="CarPoliceInvestigation" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Usnesení PČR o výsle"/>
+                <Property Name="CarPoliceReason" Type="Edm.String" Nullable="false" MaxLength="128" sap:label="Důvod nehlášení PČR"/>
+                <Property Name="MoreDamages" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Další škody"/>
+                <Property Name="NextDamageInt" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Majetek společnosti"/>
+                <Property Name="NextDamageExt" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Majetek cizího subje"/>
+                <Property Name="MoreInfo" Type="Edm.String" Nullable="false" MaxLength="128" sap:label="Další informace"/>
+                <Property Name="Stolen" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Odcizení"/>
+                <Property Name="StolenPolice" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Odcizení - nahlášeno"/>
+                <Property Name="Damaged" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Poškození"/>
+                <Property Name="DamagedPolice" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Poškození - nahlášen"/>
+                <Property Name="Insurance" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Hlášeno pojišťovně p"/>
+                <Property Name="Broker" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Hlášeno makléři spol"/>
+                <Property Name="Pspnr" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="WBS Element"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sales document"/>
+                <NavigationProperty Name="NavToDamageFromFrom1" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToForm1" FromRole="ToRole_ToForm1" ToRole="FromRole_ToForm1"/>
+            </EntityType>
+            <EntityType Name="DamageForm2" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DmgId"/>
+                </Key>
+                <Property Name="KindK2" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Podruh škody"/>
+                <Property Name="DmgId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cislo skodni udalost"/>
+                <Property Name="SapMsgNr" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Číslo hlášení z IS S"/>
+                <Property Name="ContractNr" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Cislo kontraktu"/>
+                <Property Name="BrokerInfo" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Hlášeno makléřské sp"/>
+                <Property Name="AgroDamage" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Poškozené pozemky a"/>
+                <Property Name="AgroReqLand" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:label="Požadovaná výše škod"/>
+                <Property Name="AgroReqCrop" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:label="Požadovaná výše škod"/>
+                <Property Name="AgroCalcLand" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:label="Vypočtená výše škody"/>
+                <Property Name="AgroCalcCrop" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="3" sap:label="Vypočtená výše škody"/>
+                <Property Name="CausedByEmpl" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Zaviněno zaměstnance"/>
+                <Property Name="EmplGuilty" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Uznani viny"/>
+                <Property Name="DmgBoard" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Projednat šk. komisi"/>
+                <Property Name="LaborUnion" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Projednat s odborovo"/>
+                <Property Name="LaborUnionOpt" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Určení odborové orga"/>
+                <Property Name="LaborUnionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Odborová organizace"/>
+                <NavigationProperty Name="NavToDamageFromForm2" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToForm2" FromRole="ToRole_ToForm2" ToRole="FromRole_ToForm2"/>
+            </EntityType>
+            <EntityType Name="DamageForm3" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DmgId"/>
+                </Key>
+                <Property Name="DmgId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cislo skodni udalost"/>
+                <Property Name="KindK3" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Podruh škody"/>
+                <Property Name="Stolen" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Odcizení"/>
+                <Property Name="Damaged" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Poškození"/>
+                <Property Name="CulpritKnown" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Pachatel známý"/>
+                <Property Name="BrokerInfo" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Hlášeno makléřské sp"/>
+                <NavigationProperty Name="NavToDamageFromForm3" Relationship="ZGW_SKODNI_UDALOSTI2_SRV.ToForm3" FromRole="ToRole_ToForm3" ToRole="FromRole_ToForm3"/>
+            </EntityType>
+            <Association Name="ToForm1" sap:content-version="1">
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.Damage" Multiplicity="1" Role="FromRole_ToForm1"/>
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.DamageForm1" Multiplicity="0..1" Role="ToRole_ToForm1"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToForm1">
+                        <PropertyRef Name="DmgId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToForm1">
+                        <PropertyRef Name="DmgId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToForm2" sap:content-version="1">
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.Damage" Multiplicity="1" Role="FromRole_ToForm2"/>
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.DamageForm2" Multiplicity="0..1" Role="ToRole_ToForm2"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToForm2">
+                        <PropertyRef Name="DmgId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToForm2">
+                        <PropertyRef Name="DmgId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToForm3" sap:content-version="1">
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.Damage" Multiplicity="1" Role="FromRole_ToForm3"/>
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.DamageForm3" Multiplicity="0..1" Role="ToRole_ToForm3"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToForm3">
+                        <PropertyRef Name="DmgId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToForm3">
+                        <PropertyRef Name="DmgId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToAttachments" sap:content-version="1">
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.Damage" Multiplicity="1" Role="FromRole_ToAttachments"/>
+                <End Type="ZGW_SKODNI_UDALOSTI2_SRV.Attachment" Multiplicity="*" Role="ToRole_ToAttachments"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToAttachments">
+                        <PropertyRef Name="DmgId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToAttachments">
+                        <PropertyRef Name="DmgId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZGW_SKODNI_UDALOSTI2_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="AttachmentSet" EntityType="ZGW_SKODNI_UDALOSTI2_SRV.Attachment" sap:content-version="1"/>
+                <EntitySet Name="DamageSet" EntityType="ZGW_SKODNI_UDALOSTI2_SRV.Damage" sap:content-version="1"/>
+                <EntitySet Name="DamageForm1Set" EntityType="ZGW_SKODNI_UDALOSTI2_SRV.DamageForm1" sap:content-version="1"/>
+                <EntitySet Name="DamageForm2Set" EntityType="ZGW_SKODNI_UDALOSTI2_SRV.DamageForm2" sap:content-version="1"/>
+                <EntitySet Name="DamageForm3Set" EntityType="ZGW_SKODNI_UDALOSTI2_SRV.DamageForm3" sap:content-version="1"/>
+                <AssociationSet Name="ToAttachmentsSet" Association="ZGW_SKODNI_UDALOSTI2_SRV.ToAttachments" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="DamageSet" Role="FromRole_ToAttachments"/>
+                    <End EntitySet="AttachmentSet" Role="ToRole_ToAttachments"/>
+                </AssociationSet>
+                <AssociationSet Name="ToForm1Set" Association="ZGW_SKODNI_UDALOSTI2_SRV.ToForm1" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="DamageSet" Role="FromRole_ToForm1"/>
+                    <End EntitySet="DamageForm1Set" Role="ToRole_ToForm1"/>
+                </AssociationSet>
+                <AssociationSet Name="ToForm2Set" Association="ZGW_SKODNI_UDALOSTI2_SRV.ToForm2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="DamageSet" Role="FromRole_ToForm2"/>
+                    <End EntitySet="DamageForm2Set" Role="ToRole_ToForm2"/>
+                </AssociationSet>
+                <AssociationSet Name="ToForm3Set" Association="ZGW_SKODNI_UDALOSTI2_SRV.ToForm3" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="DamageSet" Role="FromRole_ToForm3"/>
+                    <End EntitySet="DamageForm3Set" Role="ToRole_ToForm3"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/sap/ZGW_SKODNI_UDALOSTI2_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vhcalnplci.dummy.nodomain:44300/sap/opu/odata/sap/ZGW_SKODNI_UDALOSTI2_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

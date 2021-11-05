@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zgw_skodni_udalosti2_srv/$metadata">
+        <edmx:Include Namespace="ZGW_SKODNI_UDALOSTI2_SRV"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="zgw_skodni_udalosti2_annot_anno_.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZGW_SKODNI_UDALOSTI2_SRV.ZGW_SKODNI_UDALOSTI2_SRV_Entities/DamageSet">
+                <Annotation Term="Org.OData.Capabilities.V1.DeleteRestrictions">
+                    <Record Type="Org.OData.Capabilities.V1.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Path="Deletable"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Org.OData.Capabilities.V1.UpdateRestrictions">
+                    <Record Type="Org.OData.Capabilities.V1.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Path="Updatable"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZGW_SKODNI_UDALOSTI2_SRV.Damage">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Škodní událost"/>
+                        <PropertyValue Property="TypeNamePlural" String="Škodní události"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Label" String="ID škodní události"/>
+                                <PropertyValue Property="Value" Path="DmgIdDisp"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZGW_SKODNI_UDALOSTI2_SRV.Damage">
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderFacets">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Identifikace Škodní události"/>
+                            <PropertyValue Property="ID" String="Identifikace"/>
+                            <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#identifikaceSkodnichUdalosti"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.Facets">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.CollectionFacet">
+                            <PropertyValue Property="Label" String="facetColLabel1"/>
+                            <PropertyValue Property="ID" String="facetColId1"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="refFacLabel2"/>
+                                        <PropertyValue Property="ID" String="refFacId2"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#identifikaceSkodnichUdalosti"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.CollectionFacet">
+                            <PropertyValue Property="Label" String="Místo a čas"/>
+                            <PropertyValue Property="ID" String="facetColId2"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Místo a čas"/>
+                                        <PropertyValue Property="ID" String="refFacId3"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#placeTime"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.CollectionFacet">
+                            <PropertyValue Property="Label" String="Náležitosti"/>
+                            <PropertyValue Property="ID" String="facetColId3"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Náležitosti"/>
+                                        <PropertyValue Property="ID" String="refFacId5"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#others"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.CollectionFacet">
+                            <PropertyValue Property="Label" String="Výše a zástupci"/>
+                            <PropertyValue Property="ID" String="facetColId4"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Výše"/>
+                                        <PropertyValue Property="ID" String="refFacId7"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#amount"/>
+                                    </Record>
+                                    <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Zástupci"/>
+                                        <PropertyValue Property="ID" String="refFacId8"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#zastupci"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.CollectionFacet">
+                            <PropertyValue Property="Label" String="Administrativní údaje objektu"/>
+                            <PropertyValue Property="ID" String="facetColId5"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Vytvořeno/změněno"/>
+                                        <PropertyValue Property="ID" String="refFacId9"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#admin"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="identifikaceSkodnichUdalosti">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Label" String="Identifikace Škodní události"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="ID Škodní události"/>
+                                    <PropertyValue Property="Value" Path="DmgIdDisp"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Status"/>
+                                    <PropertyValue Property="Value" Path="StatTxt"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Druh"/>
+                                    <PropertyValue Property="Value" Path="KindTxt"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="placeTime">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Label" String="Místo a čas škodní udállosti"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Datum škodní události"/>
+                                    <PropertyValue Property="Value" Path="DmgDate"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Čas škodní události"/>
+                                    <PropertyValue Property="Value" Path="DmgTime"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Místo"/>
+                                    <PropertyValue Property="Value" Path="Loc"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="others">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Label" String=" Náležitosti škodní události"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Druh"/>
+                                    <PropertyValue Property="Value" Path="KindTxt"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Způsobena"/>
+                                    <PropertyValue Property="Value" Path="CausedByTxt"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Majetek"/>
+                                    <PropertyValue Property="Value" Path="PropertyTxt"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Popis"/>
+                                    <PropertyValue Property="Value" Path="Descr"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="amount">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Label" String="Výše škodní události"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Částka"/>
+                                    <PropertyValue Property="Value" Path="Amount"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Měna"/>
+                                    <PropertyValue Property="Value" Path="Curr"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="zastupci">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Label" String="Zástupci"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Zástupce KPJM"/>
+                                    <PropertyValue Property="Value" Path="DeputedErnam"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Zástupce osobního čísla"/>
+                                    <PropertyValue Property="Value" Path="DeputedPernr"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="admin">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Label" String="Administrativní údaje objektu Škodních událostí"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Vytvořil"/>
+                                    <PropertyValue Property="Value" Path="CreatedBy"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Dne"/>
+                                    <PropertyValue Property="Value" Path="CreatedAtD"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="V"/>
+                                    <PropertyValue Property="Value" Path="CreatedAtT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Změnil"/>
+                                    <PropertyValue Property="Value" Path="ChangedBy"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Dne"/>
+                                    <PropertyValue Property="Value" Path="ChangedAtD"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="V"/>
+                                    <PropertyValue Property="Value" Path="ChangedAtT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="form1">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Label" String="na majetku ČEZd"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Poddruh"/>
+                                    <PropertyValue Property="Value" Path="NavToDamageForm1/KindK1"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Uznání viny"/>
+                                    <PropertyValue Property="Value" Path="NavToDamageForm1/EmplGuilty"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Projednat ve škodní komisi"/>
+                                    <PropertyValue Property="Value" Path="NavToDamageForm1/DmgBoard"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Label" String="Projednat s odborovou organizací"/>
+                                    <PropertyValue Property="Value" Path="NavToDamageForm1/LaborUnion"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZGW_SKODNI_UDALOSTI2_SRV.Damage">
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="ID Škodní události"/>
+                            <PropertyValue Property="Value" Path="DmgIdDisp"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Value" Path="StatTxt"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="Druh"/>
+                            <PropertyValue Property="Value" Path="KindTxt"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="Výše"/>
+                            <PropertyValue Property="Value" Path="Amount"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="Vytvořeno dne"/>
+                            <PropertyValue Property="Value" Path="CreatedAtD"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="Vytvořil"/>
+                            <PropertyValue Property="Value" Path="CreatedBy"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="Změněno dne"/>
+                            <PropertyValue Property="Value" Path="ChangedAtD"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Label" String="Změnil"/>
+                            <PropertyValue Property="Value" Path="ChangedBy"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZGW_SKODNI_UDALOSTI2_SRV.Damage/Amount">
+                <Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" Path="IsForm1"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

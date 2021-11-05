@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1633242023611_150_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "project1",
+    "packageName": "",
+    "content": {
+        "property": "fitContainer",
+        "newValue": true
+    },
+    "selector": {
+        "id": "project1::sap.suite.ui.generic.template.ListReport.view.ListReport::DamageSet--listReport",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smarttable.SmartTable"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/project1/changes/",
+    "projectId": "project1",
+    "creation": 1633242023611,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "latest",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "1.0.0",
+        "to": "1.0.0",
+        "creation": "1.0.0"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}
